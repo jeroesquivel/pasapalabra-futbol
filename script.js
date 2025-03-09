@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "C": { text: "Empieza con C: ¿Cuál es el nombre del estadio del FC Barcelona?", type: "Estadio", answer: "Camp Nou"},
         "D": { text: "Empieza con D: Delantero ganador de liga nacional con Wolfsburg y Manchester City", type: "Jugador", answer:"Dzeko"},
         "E": { text: "Empieza con E: Jugador de histórico peinado que porta el dorsal n°92", type:"Jugador", answer:"El Shaarawy"},
-        "F": { text: "Empieza con F: Goleador del Mundial 2010", type:"Jugador", answer:"Forlan"},
+        "F": { text: "Empieza con F: Mejor jugador del Mundial 2010", type:"Jugador", answer:"Forlan"},
         "G": { text: "Empieza con G: Mayor número de apariciones en la historia de la selección francesa", type:"Jugador", answer:"Griezmann"},
         "H": { text: "Empieza con H: Record de goles en una temporada de la Premier League", type:"Jugador", answer:"Haaland"},
         "I": { text: "Empieza con I: LLevaba la 8 en el Barcelona y el 6 en la selección española", type:"Jugador", answer:"Iniesta"},
