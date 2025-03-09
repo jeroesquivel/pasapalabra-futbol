@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasapalabra Fútbol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-content">
+            <h1>Pasapalabra - Fútbol</h1>
+            <div class="category" id="category"></div>
+            <div class="roulette" id="roulette">
+                <div id="timer"></div> <!-- Temporizador en el centro -->
+            </div>
+            <div class="question" id="question"></div>
+            <input type="text" id="answer" placeholder="Tu respuesta aquí...">
+            <div class="buttons">
+                <button onclick="checkAnswer()">Responder</button>
+                <button onclick="passQuestion()">Pasar</button>
+            </div>
+            <button id="quit-button" onclick="confirmQuit()">Abandonar</button>
+            <button id="restart-button" onclick="restartGame()">
+                🔄 Reiniciar
+            </button>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
