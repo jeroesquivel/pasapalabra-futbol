@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Agregar todas las letras con sus preguntas...
     };
 
+    const userAnswers = new Array(letters.length).fill(null);
+
     letters.forEach((letter, index) => {
         const span = document.createElement("span");
         span.classList.add("letter");
@@ -115,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const currentLetter = letters[currentIndex];
         const correctAnswer = questions[currentLetter].answer.trim().toLowerCase();
-
+        userAnswers[currentIndex] = userAnswer;   //siempre va a estar en minúsculas, cambiar más adelante
         // Comparar la respuesta del usuario con la correcta
         if (userAnswer === correctAnswer) {
             statuses[currentIndex] = "correct";
@@ -167,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         document.getElementById("restart-button").style.display = "block";
+        document.getElementById("results-button").style.display = "block";
         gameEnded = true;
     }
 
@@ -187,6 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.restartGame = function() {
         // Ocultar el mensaje y el botón de reinicio
         document.getElementById("restart-button").style.display = "none";
+        document.getElementById("results-button").style.display = "none";
         document.getElementById("quit-button").style.display = "block";
         document.getElementById("category").style.display = "block"; 
         document.getElementById("question").style.display = "block"; 
@@ -205,9 +209,38 @@ document.addEventListener("DOMContentLoaded", () => {
         score = 0;
         statuses.fill(null);
         timeLeft = 180;
+        userAnswers.fill(null);
         startTimer();
         updateActiveLetter();
         updateQuestion();
+    };
+
+    window.showResults = function() { //un asco
+        document.getElementById("game-content").style.display = "none"; // Oculta la ruleta y botones
+        document.getElementById("results-screen").classList.remove("hidden"); // Muestra los resultados
+    
+        let resultsList = document.getElementById("resultsList");
+        resultsList.innerHTML = ""; // Limpia la lista antes de llenarla
+    
+        for(let index=0; index < letters.length; index++){
+            let li = document.createElement("li");
+            let currentLetter = letters[index];
+            if (userAnswers[index]) {
+                if (userAnswers[index] === questions[currentLetter].answer.toLowerCase()) {
+                    li.innerHTML = `<span class="correct">✅ ${letters[index].toUpperCase()} - ${userAnswers[index]}</span>`;
+                } else {
+                    li.innerHTML = `<span class="incorrect">❌ ${letters[index].toUpperCase()} - ${userAnswers[index]} (Correcto: ${questions[currentLetter].answer})</span>`;
+                }
+            } else {
+                li.innerHTML = `<span class="skipped">⚠️ ${letters[index].toUpperCase()} - Sin responder</span>`;
+            }
+            resultsList.appendChild(li);
+        }
+    };
+
+    window.backToEndScreen = function() {
+        document.getElementById("results-screen").classList.add("hidden"); // Oculta los resultados
+        document.getElementById("game-content").style.display = "block"; // Muestra la pantalla final
     };
     
 

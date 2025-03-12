@@ -164,3 +164,34 @@ button:last-child {
     background-color: #218838; /* Verde más oscuro */
     /* opacity: 0.8; */
 }
+
+#results-button {
+    display: none;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#resultsScreen {
+    text-align: center;
+    padding: 20px;
+}
+
+#resultsList {
+    list-style: none;
+    padding: 0;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.skipped {
+    color: orange;
+}

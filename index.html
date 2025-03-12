@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="game-container">
-        <div class="game-content">
+        <div class="game-content" id="game-content">
             <h1>Pasapalabra - Fútbol</h1>
             <div class="category" id="category"></div>
             <div class="roulette" id="roulette">
@@ -21,10 +21,18 @@
                 <button onclick="passQuestion()">Pasar</button>
             </div>
             <button id="quit-button" onclick="confirmQuit()">Abandonar</button>
-            <button id="restart-button" onclick="restartGame()">
+            <!-- <button id="restart-button" onclick="restartGame()">
                 🔄 Reiniciar
-            </button>
-            
+            </button> -->
+            <div class="end-buttons">
+                <button id="restart-button" onclick="restartGame()">🔄 Reiniciar</button>
+                <button id="results-button" onclick="showResults()">📜 Ver Resultados</button>
+            </div>
+        </div>
+        <div id="results-screen" class="hidden">
+            <button id="back-button" onclick="backToEndScreen()">⬅ Volver</button>
+            <h2>Resultados</h2>
+            <ul id="resultsList"></ul>
         </div>
     </div>
     <script src="script.js"></script>
