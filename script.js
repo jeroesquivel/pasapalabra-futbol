@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     const statuses = new Array(letters.length).fill(null); // null = no respondido, 'correct', 'incorrect', 'passed'
     let score = 0;
-    let timeLeft = 180; // Tiempo en segundos
+    let timeLeft = 300; // Tiempo en segundos
     let timerInterval;
     
 
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentIndex = 0;
         score = 0;
         statuses.fill(null);
-        timeLeft = 180;
+        timeLeft = 300;
         userAnswers.fill(null);
         startTimer();
         updateActiveLetter();
